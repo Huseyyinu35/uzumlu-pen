@@ -36,8 +36,10 @@
         .service-card h3 { position: absolute; bottom: 40px; left: 40px; z-index: 1; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .service-card:hover { transform: translateY(-10px); border-color: var(--gold); }
 
-        .proje-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .proje-card { border: 1px solid #222; padding: 15px; background: #0f0f0f; }
+        /* Yeni Proje Grid Yapısı */
+        .proje-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .proje-card { border: 1px solid #222; padding: 15px; background: #0f0f0f; transition: 0.3s; }
+        .proje-card:hover { border-color: var(--gold); }
         .proje-card img { width: 100%; display: block; border-radius: 4px; }
 
         .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -56,8 +58,8 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem !important; }
-            .kurumsal-section, .footer-content, .proje-grid { grid-template-columns: 1fr !important; padding: 40px 5% !important; }
-            .service-grid, .ref-grid { grid-template-columns: 1fr !important; }
+            .kurumsal-section, .footer-content { grid-template-columns: 1fr !important; padding: 40px 5% !important; }
+            .service-grid, .proje-grid, .ref-grid { grid-template-columns: 1fr !important; }
             header { padding: 20px 5% !important; }
             nav a { margin-left: 15px; font-size: 0.6rem; }
         }
@@ -98,16 +100,20 @@
         </div>
     </section>
 
-    <section id="projeler" class="fade-up" style="background: #0a0a0a;">
-        <h2 style="text-align:center; margin-bottom: 40px; color: var(--gold);">ÖZEL PROJELERİMİZ</h2>
+    <section id="projeler" class="fade-up" style="background: #0f0f0f;">
+        <h2 style="text-align:center; margin-bottom: 60px; color: var(--gold);">ÖZEL PROJELERİMİZ</h2>
         <div class="proje-grid">
+            <div class="proje-card">
+                <h3 style="text-align: center; margin-bottom: 15px;">70 m² MODEL</h3>
+                <img src="Unknown-1_2.jpeg" alt="70 m2 Model">
+            </div>
             <div class="proje-card">
                 <h3 style="text-align: center; margin-bottom: 15px;">74 m² MODEL</h3>
                 <img src="75f1b357-023a-41d4-bacb-995aadbe0e07_3.png" alt="74 m2 Model">
             </div>
             <div class="proje-card">
-                <h3 style="text-align: center; margin-bottom: 15px;">70 m² MODEL</h3>
-                <img src="Unknown-1_2.jpeg" alt="70 m2 Model">
+                <h3 style="text-align: center; margin-bottom: 15px;">80 m² MODEL</h3>
+                <img src="prefabrik80.png" alt="80 m2 Model">
             </div>
         </div>
     </section>
