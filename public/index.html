@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üzümlü Pen | Premium Yapı & Mimari</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --dark: #0a0a0a; --gold: #f26522; --white: #ffffff; --text-gray: #a0a0a0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--dark); color: var(--white); font-family: 'Montserrat', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+
+        .fade-up { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        
+        header { padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; z-index: 1000; transition: all 0.4s ease; }
+        header.scrolled { padding: 10px 10%; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #222; }
+        
+        .logo-img { height: 80px; width: auto; transition: 0.4s; filter: brightness(1.5) contrast(1.2); mix-blend-mode: screen; }
+        header.scrolled .logo-img { height: 50px; }
+        
+        nav a { color: var(--text-gray); text-decoration: none; margin-left: 40px; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; transition: all 0.3s ease; }
+        nav a.active { color: var(--white); text-shadow: 0 0 10px rgba(255,255,255,0.8); }
+
+        .hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=3840') center/cover; }
+        .hero h1 { font-size: 6rem; line-height: 0.9; margin-bottom: 20px; }
+        
+        section { padding: 120px 10%; }
+        
+        .kurumsal-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; background: #111; }
+        .kurumsal-img { height: 400px; width: 100%; object-fit: cover; border-radius: 5px; }
+        
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-card { height: 400px; position: relative; border: 1px solid #222; overflow: hidden; transition: 0.4s; }
+        .service-card img { width: 100%; height: 100%; object-fit: cover; }
+        .service-card h3 { position: absolute; bottom: 40px; left: 40px; z-index: 1; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+
+        .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .ref-card { height: 350px; border: 1px solid #222; overflow: hidden; position: relative; }
+        .ref-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        
+        .location-tag { position: absolute; bottom: 20px; left: 20px; padding: 10px 20px; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); color: var(--white); font-size: 0.8rem; letter-spacing: 1px; z-index: 2; }
+        .ref-card:hover img { transform: scale(1.1); }
+
+        .footer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 80px 10%; border-top: 1px solid #222; align-items: start; }
+        .contact-info p { margin-bottom: 15px; color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
+        .contact-info span { color: var(--white); font-weight: bold; }
+        .contact-social a { color: var(--gold); text-decoration: none; margin-right: 15px; font-weight: bold; }
+        .map-container { height: 300px; width: 100%; border: 1px solid #222; }
+        .wa-float { position: fixed; bottom: 40px; right: 40px; background: var(--gold); padding: 20px 30px; border-radius: 5px; z-index: 1000; color: white; text-decoration: none; font-weight: 700; box-shadow: 0 10px 30px rgba(242, 101, 34, 0.4); }
+
+        /* Mobil Uyumluluk Ayarları */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem !important; }
+            .kurumsal-section, .footer-content { grid-template-columns: 1fr !important; padding: 40px 5% !important; }
+            .service-grid, .ref-grid { grid-template-columns: 1fr !important; }
+            header { padding: 20px 5% !important; }
+            nav a { margin-left: 15px; font-size: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="mainHeader">
+        <a href="#"><img src="logo.svg" class="logo-img" alt="Üzümlü Pen Logo"></a>
+        <nav>
+            <a href="#kurumsal" class="nav-link">KURUMSAL</a>
+            <a href="#hizmetler" class="nav-link">HİZMETLER</a>
+            <a href="#referanslar" class="nav-link">REFERANSLAR</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="fade-up visible">
+            <h1>GELECEĞİ<br><span style="color:var(--gold)">İNŞA EDİYORUZ</span></h1>
+        </div>
+    </section>
+
+    <section id="kurumsal" class="kurumsal-section fade-up">
+        <div>
+            <h2 style="margin-bottom: 20px;">KURUMSAL GÜÇ</h2>
+            <p style="color: var(--text-gray); line-height: 1.8;">Üzümlü Pen olarak, yılların getirdiği tecrübe ve modern mühendislik vizyonuyla, yaşam alanlarınızı yeniden tasarlıyoruz.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=3840" class="kurumsal-img" alt="Modern Mimari">
+    </section>
+
+    <section id="hizmetler" class="fade-up">
+        <h2 style="text-align:center; margin-bottom:60px;">UZMANLIK ALANLARIMIZ</h2>
+        <div class="service-grid">
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800"><h3>Prefabrik Ev</h3></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800"><h3>PVC Sistemleri</h3></div>
+            <div class="service-card"><img src="mimari.jpg"><h3>Mimari Tasarım</h3></div>
+        </div>
+    </section>
+
+    <section id="proje-detay" class="fade-up" style="background: #0f0f0f; padding: 60px 10%;">
+        <h2 style="text-align:center; margin-bottom: 40px; color: var(--gold);">ÖZEL PROJE: 80 m² MODEL</h2>
+        <div style="max-width: 900px; margin: 0 auto; border: 1px solid #222; padding: 10px;">
+            <img src="prefabrik80.png" alt="80m2 Prefabrik Ev Teknik Detayları" style="width: 100%; display: block; border-radius: 4px;">
+        </div>
+    </section>
+
+    <section id="referanslar" class="fade-up">
+        <h2 style="text-align:center; margin-bottom:60px;">SEÇKİN REFERANSLAR</h2>
+        <div class="ref-grid">
+            <div class="ref-card">
+                <div class="location-tag">BEYŞEHİR</div>
+                <img src="beysehir.jpg" alt="Beyşehir Proje">
+            </div>
+            <div class="ref-card"><div class="location-tag">MERAM</div><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800"></div>
+            <div class="ref-card"><div class="location-tag">SELÇUKLU</div><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"></div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/905435892051" class="wa-float" target="_blank">WHATSAPP İLE BİLGİ AL</a>
+
+    <footer class="footer-content fade-up">
+        <div class="contact-info">
+            <h3 style="margin-bottom:20px;">İLETİŞİM BİLGİLERİ</h3>
+            <p>Merkez Ofis: <span>Hamidiye Mah. 40864. Sok. No:31, Beyşehir / Konya</span></p>
+            <p>Müşteri Destek: <span>+90 543 589 20 51</span></p>
+            <p>Kurumsal E-posta: <span>info@uzumlupen.com</span></p>
+            <p>Çalışma Saatleri: <span>Pzt - Cmt: 08:30 - 19:00 | Pazar: Kapalı</span></p>
+            <div class="contact-social">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p style="margin-top:40px; font-size:0.8rem; color: #555;">© 2026 Üzümlü Pen | Tüm Hakları Saklıdır. <br> Tasarım & Yazılım: Hüseyin Uyanık</p>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.9!2d31.7225!3d37.6755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d0a1b555555555%3A0x1234567890abcdef!2sHamidiye%2C%2040864.%20Sk.%20No%3A31%2C%2042700%20Bey%C5%9Fehir%2FKonya!5e0!3m2!1str!2str!4v1680000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 250) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('.fade-up').forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>
