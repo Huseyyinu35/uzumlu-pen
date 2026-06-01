@@ -36,6 +36,10 @@
         .service-card h3 { position: absolute; bottom: 40px; left: 40px; z-index: 1; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .service-card:hover { transform: translateY(-10px); border-color: var(--gold); }
 
+        .proje-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .proje-card { border: 1px solid #222; padding: 15px; background: #0f0f0f; }
+        .proje-card img { width: 100%; display: block; border-radius: 4px; }
+
         .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .ref-card { height: 350px; border: 1px solid #222; overflow: hidden; position: relative; }
         .ref-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
@@ -50,10 +54,9 @@
         .map-container { height: 300px; width: 100%; border: 1px solid #222; }
         .wa-float { position: fixed; bottom: 40px; right: 40px; background: var(--gold); padding: 20px 30px; border-radius: 5px; z-index: 1000; color: white; text-decoration: none; font-weight: 700; box-shadow: 0 10px 30px rgba(242, 101, 34, 0.4); }
 
-        /* Mobil Uyumluluk Ayarları */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem !important; }
-            .kurumsal-section, .footer-content { grid-template-columns: 1fr !important; padding: 40px 5% !important; }
+            .kurumsal-section, .footer-content, .proje-grid { grid-template-columns: 1fr !important; padding: 40px 5% !important; }
             .service-grid, .ref-grid { grid-template-columns: 1fr !important; }
             header { padding: 20px 5% !important; }
             nav a { margin-left: 15px; font-size: 0.6rem; }
@@ -67,6 +70,7 @@
         <nav>
             <a href="#kurumsal" class="nav-link">KURUMSAL</a>
             <a href="#hizmetler" class="nav-link">HİZMETLER</a>
+            <a href="#projeler" class="nav-link">PROJELER</a>
             <a href="#referanslar" class="nav-link">REFERANSLAR</a>
         </nav>
     </header>
@@ -94,20 +98,24 @@
         </div>
     </section>
 
-    <section id="proje-detay" class="fade-up" style="background: #0f0f0f; padding: 60px 10%;">
-        <h2 style="text-align:center; margin-bottom: 40px; color: var(--gold);">ÖZEL PROJE: 80 m² MODEL</h2>
-        <div style="max-width: 900px; margin: 0 auto; border: 1px solid #222; padding: 10px;">
-            <img src="prefabrik80.png" alt="80m2 Prefabrik Ev Teknik Detayları" style="width: 100%; display: block; border-radius: 4px;">
+    <section id="projeler" class="fade-up" style="background: #0a0a0a;">
+        <h2 style="text-align:center; margin-bottom: 40px; color: var(--gold);">ÖZEL PROJELERİMİZ</h2>
+        <div class="proje-grid">
+            <div class="proje-card">
+                <h3 style="text-align: center; margin-bottom: 15px;">74 m² MODEL</h3>
+                <img src="75f1b357-023a-41d4-bacb-995aadbe0e07_3.png" alt="74 m2 Model">
+            </div>
+            <div class="proje-card">
+                <h3 style="text-align: center; margin-bottom: 15px;">70 m² MODEL</h3>
+                <img src="Unknown-1_2.jpeg" alt="70 m2 Model">
+            </div>
         </div>
     </section>
 
     <section id="referanslar" class="fade-up">
         <h2 style="text-align:center; margin-bottom:60px;">SEÇKİN REFERANSLAR</h2>
         <div class="ref-grid">
-            <div class="ref-card">
-                <div class="location-tag">BEYŞEHİR</div>
-                <img src="beysehir.jpg" alt="Beyşehir Proje">
-            </div>
+            <div class="ref-card"><div class="location-tag">BEYŞEHİR</div><img src="beysehir.jpg"></div>
             <div class="ref-card"><div class="location-tag">MERAM</div><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800"></div>
             <div class="ref-card"><div class="location-tag">SELÇUKLU</div><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"></div>
         </div>
@@ -121,12 +129,6 @@
             <p>Merkez Ofis: <span>Hamidiye Mah. 40864. Sok. No:31, Beyşehir / Konya</span></p>
             <p>Müşteri Destek: <span>+90 543 589 20 51</span></p>
             <p>Kurumsal E-posta: <span>info@uzumlupen.com</span></p>
-            <p>Çalışma Saatleri: <span>Pzt - Cmt: 08:30 - 19:00 | Pazar: Kapalı</span></p>
-            <div class="contact-social">
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">LinkedIn</a>
-            </div>
             <p style="margin-top:40px; font-size:0.8rem; color: #555;">© 2026 Üzümlü Pen | Tüm Hakları Saklıdır. <br> Tasarım & Yazılım: Hüseyin Uyanık</p>
         </div>
         <div class="map-container">
@@ -137,29 +139,16 @@
     <script>
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
-
         window.addEventListener('scroll', () => {
             const header = document.getElementById('mainHeader');
             header.classList.toggle('scrolled', window.scrollY > 50);
-
             let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 250) {
-                    current = section.getAttribute('id');
-                }
-            });
-
+            sections.forEach(section => { if (window.scrollY >= section.offsetTop - 250) current = section.getAttribute('id'); });
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href').substring(1) === current) link.classList.add('active');
             });
-
-            document.querySelectorAll('.fade-up').forEach(el => {
-                if(el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('visible');
-            });
+            document.querySelectorAll('.fade-up').forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('visible'); });
         });
     </script>
 </body>
